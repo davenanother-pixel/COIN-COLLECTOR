@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coin Collector Pixel Quest</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hud">
+        <div class="hud__title">
+          <h1>Coin Collector Pixel Quest</h1>
+          <p>Collect all coins. Avoid lava. Use walls for cover.</p>
+        </div>
+        <div class="hud__stats">
+          <div><span>Level Coins</span><strong id="levelCoins">0</strong></div>
+          <div><span>Total Saved</span><strong id="savedCoins">0</strong></div>
+          <div><span>Best Time</span><strong id="bestTime">--</strong></div>
+        </div>
+      </header>
+
+      <section class="game">
+        <div class="game__frame" aria-live="polite">
+          <canvas id="gameCanvas" width="160" height="120" aria-label="Coin collecting game" role="img"></canvas>
+          <div class="game__overlay" id="messageOverlay" hidden>
+            <div class="message">
+              <h2 id="messageTitle">Paused</h2>
+              <p id="messageBody">Press start to continue.</p>
+              <button id="messageButton" type="button">Continue</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="controls__group">
+          <h2>Controls</h2>
+          <ul>
+            <li><strong>Keyboard:</strong> Arrow keys or WASD to move, R to reset.</li>
+            <li><strong>Gamepad:</strong> Left stick/D-pad to move, A to reset.</li>
+            <li><strong>Touch:</strong> Use the on-screen D-pad.</li>
+          </ul>
+        </div>
+        <div class="controls__group controls__touch">
+          <button class="touch-button" data-dir="up" aria-label="Move up">▲</button>
+          <div class="touch-row">
+            <button class="touch-button" data-dir="left" aria-label="Move left">◀</button>
+            <button class="touch-button" data-dir="down" aria-label="Move down">▼</button>
+            <button class="touch-button" data-dir="right" aria-label="Move right">▶</button>
+          </div>
+          <button class="touch-button touch-button--reset" data-action="reset" aria-label="Reset level">Reset</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
